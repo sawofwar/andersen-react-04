@@ -1,10 +1,12 @@
 import "./App.css";
-import Input from "./components/Input/Input";
+import InputWithButton from "./components/InputWithButton/InputWithButton";
 
 function App() {
   return (
     <div className="wrapper">
-      <Input />
+      <h1>Todo List</h1>
+
+      <InputWithButton />
     </div>
   );
 }

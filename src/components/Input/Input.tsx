@@ -1,10 +1,9 @@
-import React from "react";
-
 const Input = () => {
   return (
-    <>
-      <input type="text" placeholder="Buy groceries" />
-    </>
+    <form>
+      <label htmlFor="todo-input">Add your todo</label>
+      <input type="text" placeholder="Buy groceries" id="todo-input" />
+    </form>
   );
 };
 
