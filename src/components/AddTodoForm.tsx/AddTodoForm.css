@@ -7,7 +7,7 @@
 .add-todo-input,
 .add-todo-btn {
   font-size: 1rem;
-  padding: var(--padding-left);
+  padding: var(--padding-sides);
   height: var(--small-height);
   border: var(--white-border);
   border-radius: var(--border-radius);
@@ -20,6 +20,8 @@
 .add-todo-btn {
   margin-left: 10px;
   cursor: pointer;
+
+  color: #3e4c40;
 
   background-color: var(--green);
 }

@@ -29,7 +29,7 @@ const AddTodoForm = () => {
         className="add-todo-input"
       />
       <button onClick={handleAddTodo} className="add-todo-btn">
-        Add
+        ➕
       </button>
     </div>
   );

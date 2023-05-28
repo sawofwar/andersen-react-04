@@ -74,11 +74,11 @@ button:focus-visible {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
+  font-family: "Roboto Mono", monospace;
 }
 
 :root {
-  font-family: "Roboto Mono", monospace;
-
   font-size: 16px;
   line-height: 1.5;
 
@@ -87,7 +87,7 @@ button:focus-visible {
 
   --small-height: 40px;
 
-  --padding-left: 0 10px;
+  --padding-sides: 0 10px;
 
   --white: #ccc;
   --black: #222;

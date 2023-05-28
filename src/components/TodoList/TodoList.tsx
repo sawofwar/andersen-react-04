@@ -48,27 +48,29 @@ const TodoList = () => {
         {todos.map((todo) => (
           <li key={todo.id} className="todo-item">
             {editTodoId === todo.id ? (
-              <div>
+              <div className="edit-todo">
                 <input
                   type="text"
                   value={editTodoText}
                   onChange={handleEditInputChange}
                   autoFocus
                 />
-                <button onClick={handleEditTodo}>Save</button>
+                <button onClick={handleEditTodo} className="todo-btn">
+                  💾
+                </button>
               </div>
             ) : (
               <div className="todo-main">
                 <span>{todo.title}</span>
                 <button
                   onClick={() => handleEditButtonClick(todo.id, todo.title)}
-                  className="edit-btn"
+                  className="todo-btn"
                 >
                   🖊️
                 </button>
                 <button
                   onClick={() => handleRemoveTodo(todo.id)}
-                  className="remove-btn"
+                  className="todo-btn"
                 >
                   ❌
                 </button>

@@ -5,10 +5,12 @@
   list-style: none;
 
   height: var(--small-height);
-  padding: var(--padding-left);
+  padding: var(--padding-sides);
 
   background-color: var(--light-brown);
   border-radius: var(--border-radius);
+
+  margin-top: 10px;
 }
 
 .todo-main {
@@ -23,9 +25,10 @@
 
 .todo-main > span {
   margin-right: auto;
+  color: #2b2d26;
 }
 
-.todo-main > button {
+.todo-btn {
   cursor: pointer;
   border: none;
   border-radius: var(--border-radius);
@@ -34,6 +37,21 @@
   aspect-ratio: 1/1;
 }
 
-.todo-main > button:hover {
+.todo-btn:hover {
   background-color: var(--red);
+}
+
+.edit-todo {
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.edit-todo > input {
+  width: 100%;
+  padding: var(--padding-sides);
+  border: var(--white-border);
+  border-radius: var(--border-radius);
 }
