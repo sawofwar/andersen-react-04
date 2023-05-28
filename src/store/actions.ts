@@ -9,3 +9,8 @@ export const removeTodo = (id: number): TodoAction => ({
   type: "REMOVE_TODO",
   payload: id,
 });
+
+export const editTodo = (todo: Todo): TodoAction => ({
+  type: "EDIT_TODO",
+  payload: todo,
+});

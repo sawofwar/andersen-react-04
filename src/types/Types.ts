@@ -21,4 +21,9 @@ export interface RemoveTodoAction {
   payload: number;
 }
 
-export type TodoAction = AddTodoAction | RemoveTodoAction;
+export interface EditTodoAction {
+  type: "EDIT_TODO";
+  payload: Todo;
+}
+
+export type TodoAction = AddTodoAction | RemoveTodoAction | EditTodoAction;

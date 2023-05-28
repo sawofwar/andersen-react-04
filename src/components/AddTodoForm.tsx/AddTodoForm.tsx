@@ -8,7 +8,7 @@ const AddTodoForm = () => {
   const handleAddTodo = () => {
     if (title.trim() !== "") {
       const newTodo = {
-        id: Date.now(), // Generate unique ID
+        id: Date.now(),
         title,
       };
 

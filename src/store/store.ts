@@ -22,12 +22,18 @@ const todoReducer: Reducer<TodoState, TodoAction> = (
           return todo.id !== action.payload;
         }),
       };
+    case "EDIT_TODO":
+      return {
+        ...state,
+        todos: state.todos.map((todo) =>
+          todo.id === action.payload.id ? action.payload : todo
+        ),
+      };
     default:
       return state;
   }
 };
 
-// Create store
 const store = createStore(todoReducer);
 
 export default store;
