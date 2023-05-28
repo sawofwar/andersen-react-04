@@ -4,7 +4,7 @@ import "./TodoList.css";
 import { TodoState } from "../../types/Types";
 import { removeTodo, editTodo } from "../../store/actions";
 
-import { useState } from "react";
+import React, { useState } from "react";
 
 const TodoList = () => {
   const todos = useSelector((state: TodoState) => state.todos);
@@ -27,7 +27,9 @@ const TodoList = () => {
     setEditTodoText(event.target.value);
   };
 
-  const handleEditTodo = () => {
+  const handleEditTodo = (event: React.MouseEvent) => {
+    console.log(event.target);
+
     if (editTodoId !== null && editTodoText.trim() !== "") {
       dispatch(
         editTodo({
@@ -51,6 +53,7 @@ const TodoList = () => {
                   type="text"
                   value={editTodoText}
                   onChange={handleEditInputChange}
+                  autoFocus
                 />
                 <button onClick={handleEditTodo}>Save</button>
               </div>
