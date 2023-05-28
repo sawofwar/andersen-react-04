@@ -46,7 +46,7 @@ const TodoList = () => {
     <div className="todo-wrapper">
       <ul className="todo-list">
         {todos.map((todo) => (
-          <li key={todo.id}>
+          <li key={todo.id} className="todo-item">
             {editTodoId === todo.id ? (
               <div>
                 <input

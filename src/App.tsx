@@ -12,8 +12,10 @@ function App() {
     <Provider store={store}>
       <div className="wrapper">
         <h1>Todo List</h1>
-        <AddTodoForm />
-        <TodoList />
+        <div className="small-wrapper">
+          <AddTodoForm />
+          <TodoList />
+        </div>
       </div>
     </Provider>
   );
