@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 
+import "./AddTodoForm.css";
+
 const AddTodoForm = () => {
   const [title, setTitle] = useState("");
   const dispatch = useDispatch();
@@ -24,8 +26,11 @@ const AddTodoForm = () => {
         placeholder="Add todo..."
         value={title}
         onChange={(e) => setTitle(e.target.value)}
+        className="add-todo-input"
       />
-      <button onClick={handleAddTodo}>Add</button>
+      <button onClick={handleAddTodo} className="add-todo-btn">
+        Add
+      </button>
     </div>
   );
 };
