@@ -7,6 +7,33 @@
   height: var(--small-height);
   padding: var(--padding-left);
 
-  background-color: red;
+  background-color: var(--light-brown);
   border-radius: var(--border-radius);
+}
+
+.todo-main {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 10px;
+
+  width: 100%;
+}
+
+.todo-main > span {
+  margin-right: auto;
+}
+
+.todo-main > button {
+  cursor: pointer;
+  border: none;
+  border-radius: var(--border-radius);
+
+  height: calc(var(--small-height) * 0.75);
+  aspect-ratio: 1/1;
+}
+
+.todo-main > button:hover {
+  background-color: var(--red);
 }

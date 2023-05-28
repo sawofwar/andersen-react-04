@@ -68,6 +68,8 @@ button:focus-visible {
   }
 } */
 
+/* https://coolors.co/daffef-d0ffd6-d5e2bc-a6979c-d3c0d2 */
+
 * {
   margin: 0;
   padding: 0;
@@ -86,9 +88,24 @@ button:focus-visible {
   --small-height: 40px;
 
   --padding-left: 0 10px;
+
+  --white: #ccc;
+  --black: #222;
+
+  --light-green: #daffef;
+  --green: #d0ffd6;
+  --light-brown: #d5e2bc;
+  --brown: #a6979c;
+  --light-purple: #d3c0d2;
 }
 
 body {
-  background-color: #111;
-  color: #ddd;
+  color: #222;
+
+  background: rgb(211, 192, 210);
+  background: linear-gradient(
+    135deg,
+    rgba(211, 192, 210, 1) 0%,
+    rgba(166, 151, 156, 1) 100%
+  );
 }

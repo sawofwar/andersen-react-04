@@ -58,19 +58,19 @@ const TodoList = () => {
                 <button onClick={handleEditTodo}>Save</button>
               </div>
             ) : (
-              <div>
+              <div className="todo-main">
                 <span>{todo.title}</span>
                 <button
                   onClick={() => handleEditButtonClick(todo.id, todo.title)}
                   className="edit-btn"
                 >
-                  Edit
+                  🖊️
                 </button>
                 <button
                   onClick={() => handleRemoveTodo(todo.id)}
                   className="remove-btn"
                 >
-                  Remove
+                  ❌
                 </button>
               </div>
             )}

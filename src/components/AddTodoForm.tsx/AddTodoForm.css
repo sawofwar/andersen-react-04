@@ -20,4 +20,6 @@
 .add-todo-btn {
   margin-left: 10px;
   cursor: pointer;
+
+  background-color: var(--green);
 }
