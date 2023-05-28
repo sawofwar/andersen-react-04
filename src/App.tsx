@@ -1,17 +1,21 @@
-import "./App.css";
-import InputWithButton from "./components/InputWithButton/InputWithButton";
+import { Provider } from "react-redux";
+
+import AddTodoForm from "./components/AddTodoForm.tsx/AddTodoForm";
 import TodoList from "./components/TodoList/TodoList";
+
+import store from "./store/store";
+
+import "./App.css";
 
 function App() {
   return (
-    <div className="wrapper">
-      <h1>Todo List</h1>
-      <div className="small-wrapper">
-        <InputWithButton />
-
+    <Provider store={store}>
+      <div className="wrapper">
+        <h1>Todo List</h1>
         <TodoList />
+        <AddTodoForm />
       </div>
-    </div>
+    </Provider>
   );
 }
 
