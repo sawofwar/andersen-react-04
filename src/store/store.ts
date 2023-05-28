@@ -1,35 +1,10 @@
 import { createStore, Reducer } from "redux";
+import { TodoState, TodoAction } from "../types/Types";
 
-// Define interface for the state
-interface TodoState {
-  todos: Todo[];
-}
-
-// Define interface for the todo object
-interface Todo {
-  id: number;
-  title: string;
-}
-
-// Define initial state
 const initialState: TodoState = {
   todos: [],
 };
 
-// Define actions and action types
-interface AddTodoAction {
-  type: "ADD_TODO";
-  payload: Todo;
-}
-
-interface RemoveTodoAction {
-  type: "REMOVE_TODO";
-  payload: number; // Assuming todo ID is a number
-}
-
-type TodoAction = AddTodoAction | RemoveTodoAction;
-
-// Define reducer function
 const todoReducer: Reducer<TodoState, TodoAction> = (
   state = initialState,
   action

@@ -12,8 +12,8 @@ function App() {
     <Provider store={store}>
       <div className="wrapper">
         <h1>Todo List</h1>
-        <TodoList />
         <AddTodoForm />
+        <TodoList />
       </div>
     </Provider>
   );
