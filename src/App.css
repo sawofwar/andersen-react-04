@@ -14,3 +14,7 @@
   align-items: center;
   justify-content: center;
 }
+
+.small-wrapper {
+  width: clamp(300px, 100%, 500px);
+}
