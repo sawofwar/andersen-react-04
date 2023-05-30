@@ -14,3 +14,8 @@ export const editTodo = (todo: Todo): TodoAction => ({
   type: "EDIT_TODO",
   payload: todo,
 });
+
+export const toggleTodo = (todo: Todo): TodoAction => ({
+  type: "TOGGLE_TODO",
+  payload: todo,
+});

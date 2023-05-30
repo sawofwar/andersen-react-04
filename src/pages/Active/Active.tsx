@@ -8,7 +8,7 @@ const Active = () => {
     <>
       <div className="small-wrapper">
         <AddTodoForm />
-        <TodoList />
+        <TodoList filter="active" />
       </div>
     </>
   );

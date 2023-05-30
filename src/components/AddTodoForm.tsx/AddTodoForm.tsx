@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 
+import { addTodo } from "../../store/actions";
+
 import "./AddTodoForm.css";
 
 const AddTodoForm = () => {
@@ -12,9 +14,10 @@ const AddTodoForm = () => {
       const newTodo = {
         id: Date.now(),
         title,
+        active: true,
       };
 
-      dispatch({ type: "ADD_TODO", payload: newTodo });
+      dispatch(addTodo(newTodo));
       setTitle("");
     }
   };

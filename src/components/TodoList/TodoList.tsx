@@ -9,7 +9,7 @@ import Todo from "../Todo/Todo";
 
 import "./TodoList.css";
 
-const TodoList = () => {
+const TodoList = ({ filter }: { filter: string }) => {
   const todos = useSelector((state: TodoState) => state.todos);
   const [editTodoId, setEditTodoId] = useState<number | null>(null);
   const [editTodoText, setEditTodoText] = useState("");
@@ -30,9 +30,7 @@ const TodoList = () => {
     setEditTodoText(event.target.value);
   };
 
-  const handleEditTodo = (event: React.MouseEvent) => {
-    console.log(event.target);
-
+  const handleEditTodo = () => {
     if (editTodoId !== null && editTodoText.trim() !== "") {
       dispatch(
         editTodo({
@@ -48,28 +46,30 @@ const TodoList = () => {
   return (
     <div className="todo-wrapper">
       <ul className="todo-list">
-        {todos.map((todo) => (
+        {todos.map((todo) =>
           // 🔥 li start
 
-          <li key={todo.id} className="todo-item">
-            {editTodoId === todo.id ? (
-              <EditTodo
-                inputValue={editTodoText}
-                onChange={handleEditInputChange}
-                onEdit={handleEditTodo}
-              />
-            ) : (
-              <Todo
-                id={todo.id}
-                title={todo.title}
-                onEditButtonClick={handleEditButtonClick}
-                onRemoveButtonClick={handleRemoveTodo}
-              />
+          todo.active ? (
+            <li key={todo.id} className="todo-item">
+              {editTodoId === todo.id ? (
+                <EditTodo
+                  inputValue={editTodoText}
+                  onChange={handleEditInputChange}
+                  onEdit={handleEditTodo}
+                />
+              ) : (
+                <Todo
+                  id={todo.id}
+                  title={todo.title}
+                  onEditButtonClick={handleEditButtonClick}
+                  onRemoveButtonClick={handleRemoveTodo}
+                />
 
-              // 🔥 li end
-            )}
-          </li>
-        ))}
+                // 🔥 li end
+              )}
+            </li>
+          ) : null
+        )}
       </ul>
     </div>
   );

@@ -1,7 +1,7 @@
 export interface Todo {
   id: number;
   title: string;
-  done?: boolean;
+  active?: boolean;
 }
 
 export interface TodoState {
@@ -27,4 +27,13 @@ export interface EditTodoAction {
   payload: Todo;
 }
 
-export type TodoAction = AddTodoAction | RemoveTodoAction | EditTodoAction;
+export interface ToggleTodoAction {
+  type: "TOGGLE_TODO";
+  payload: Todo;
+}
+
+export type TodoAction =
+  | AddTodoAction
+  | RemoveTodoAction
+  | EditTodoAction
+  | ToggleTodoAction;

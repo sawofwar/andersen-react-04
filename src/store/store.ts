@@ -29,6 +29,14 @@ const todoReducer: Reducer<TodoState, TodoAction> = (
           todo.id === action.payload.id ? action.payload : todo
         ),
       };
+
+    case "TOGGLE_TODO":
+      return {
+        ...state,
+        todos: state.todos.map((todo) =>
+          todo.id === action.payload.id ? action.payload : todo
+        ),
+      };
     default:
       return state;
   }
