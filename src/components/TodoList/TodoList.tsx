@@ -7,6 +7,7 @@ import { TodoState } from "../../types/Types";
 import { removeTodo, editTodo } from "../../store/actions";
 
 import EditTodo from "../EditTodo/EditTodo";
+import Todo from "../Todo/Todo";
 
 const TodoList = () => {
   const todos = useSelector((state: TodoState) => state.todos);
@@ -65,37 +66,14 @@ const TodoList = () => {
             ) : (
               // 🔥🔥 main todo block
 
-              <div className="todo-main">
-                {/* 🔥🔥🔥 finish todo button */}
+              <Todo
+                id={todo.id}
+                title={todo.title}
+                onCheckButtonClick={handleCheckButtonClick}
+                onEditButtonClick={handleEditButtonClick}
+                onRemoveButtonClick={handleRemoveTodo}
+              />
 
-                <button className="check-btn" onClick={handleCheckButtonClick}>
-                  ✅
-                </button>
-
-                {/* 🔥🔥🔥 actual todo text */}
-
-                <span>{todo.title}</span>
-
-                {/* 🔥🔥🔥 edit todo trigger button  */}
-
-                <button
-                  onClick={() => handleEditButtonClick(todo.id, todo.title)}
-                  className="todo-btn"
-                >
-                  🖊️
-                </button>
-
-                {/* 🔥🔥🔥 remove todo trigger button  */}
-
-                <button
-                  onClick={() => handleRemoveTodo(todo.id)}
-                  className="todo-btn"
-                >
-                  ❌
-                </button>
-
-                {/* 🔥🔥 main todo block end */}
-              </div>
               // 🔥 li end
             )}
           </li>
