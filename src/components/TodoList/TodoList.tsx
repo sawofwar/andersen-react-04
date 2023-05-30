@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-
 import { useSelector, useDispatch } from "react-redux";
 
-import "./TodoList.css";
-import { TodoState } from "../../types/Types";
 import { removeTodo, editTodo } from "../../store/actions";
+import { TodoState } from "../../types/Types";
 
 import EditTodo from "../EditTodo/EditTodo";
 import Todo from "../Todo/Todo";
+
+import "./TodoList.css";
 
 const TodoList = () => {
   const todos = useSelector((state: TodoState) => state.todos);
@@ -45,13 +45,6 @@ const TodoList = () => {
     }
   };
 
-  const handleCheckButtonClick = (
-    event: React.MouseEvent<HTMLButtonElement>
-  ) => {
-    console.log(todos);
-    console.log(event);
-  };
-
   return (
     <div className="todo-wrapper">
       <ul className="todo-list">
@@ -69,7 +62,6 @@ const TodoList = () => {
               <Todo
                 id={todo.id}
                 title={todo.title}
-                onCheckButtonClick={handleCheckButtonClick}
                 onEditButtonClick={handleEditButtonClick}
                 onRemoveButtonClick={handleRemoveTodo}
               />

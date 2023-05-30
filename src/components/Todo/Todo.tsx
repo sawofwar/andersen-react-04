@@ -1,29 +1,29 @@
-type CheckButtonClickEventType = React.MouseEvent<HTMLButtonElement>;
+import { useState } from "react";
 
 interface TodoProps {
   id: number;
   title: string;
-  onCheckButtonClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
   onEditButtonClick: (id: number, title: string) => void;
   onRemoveButtonClick: (id: number) => void;
 }
 
 const Todo = ({
-  onCheckButtonClick,
   id,
   title,
   onEditButtonClick,
   onRemoveButtonClick,
 }: TodoProps) => {
-  const checkButtonClickHandler = (event: CheckButtonClickEventType) => {
-    onCheckButtonClick(event);
+  const [strikeThrough, setStrikeThrough] = useState(false);
+
+  const checkButtonClickHandler = () => {
+    setStrikeThrough(!strikeThrough);
   };
 
   const handleRemoveTodoButtonClick = () => {
     onRemoveButtonClick(id);
   };
 
-  const handleEditButtonClick = (id: number, title: string) => {
+  const handleEditButtonClick = () => {
     onEditButtonClick(id, title);
   };
 
@@ -33,12 +33,17 @@ const Todo = ({
         ✅
       </button>
 
-      <span>{title}</span>
-
-      <button
-        onClick={() => handleEditButtonClick(id, title)}
-        className="todo-btn"
+      <span
+        style={
+          strikeThrough
+            ? { textDecoration: "line-through" }
+            : { textDecoration: "none" }
+        }
       >
+        {title}
+      </span>
+
+      <button onClick={() => handleEditButtonClick()} className="todo-btn">
         🖊️
       </button>
 
