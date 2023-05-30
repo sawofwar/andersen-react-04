@@ -45,8 +45,11 @@ const TodoList = () => {
     }
   };
 
-  const handleCheckButtonClick = (event: React.MouseEvent) => {
+  const handleCheckButtonClick = (
+    event: React.MouseEvent<HTMLButtonElement>
+  ) => {
     console.log(todos);
+    console.log(event);
   };
 
   return (
@@ -57,15 +60,12 @@ const TodoList = () => {
 
           <li key={todo.id} className="todo-item">
             {editTodoId === todo.id ? (
-              // 🔥🔥 edit todo block
               <EditTodo
                 inputValue={editTodoText}
                 onChange={handleEditInputChange}
                 onEdit={handleEditTodo}
               />
             ) : (
-              // 🔥🔥 main todo block
-
               <Todo
                 id={todo.id}
                 title={todo.title}
