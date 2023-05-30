@@ -1,23 +1,22 @@
-import { Provider } from "react-redux";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Active from "./pages/Active/Active";
 
-import AddTodoForm from "./components/AddTodoForm.tsx/AddTodoForm";
-import TodoList from "./components/TodoList/TodoList";
-
-import store from "./store/store";
+import Tabs from "./components/Tabs/Tabs";
 
 import "./App.css";
 
 function App() {
   return (
-    <Provider store={store}>
+    <Router>
       <div className="wrapper">
         <h1>Todo List</h1>
-        <div className="small-wrapper">
-          <AddTodoForm />
-          <TodoList />
-        </div>
+
+        <Tabs />
+        <Routes>
+          <Route path="/active" element={<Active />} />
+        </Routes>
       </div>
-    </Provider>
+    </Router>
   );
 }
 

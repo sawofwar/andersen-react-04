@@ -1,0 +1,25 @@
+.tabs > ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  list-style-type: none;
+
+  gap: 1rem;
+
+  margin: 1rem 0;
+
+  /* background-color: #f1f1f1; */
+}
+
+.tabs-link {
+  text-decoration: none;
+  color: var(--black);
+  font-weight: bold;
+  font-size: 1.25rem;
+  /* padding: 0.5rem 1rem; */
+  /* border-radius: 0.5rem; */
+  /* transition: all 0.2s ease-in-out; */
+
+  background-color: white;
+}
