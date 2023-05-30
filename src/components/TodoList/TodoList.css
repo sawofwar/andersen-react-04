@@ -11,6 +11,8 @@
   border-radius: var(--border-radius);
 
   margin-top: 10px;
+
+  position: relative;
 }
 
 .todo-main {
@@ -28,7 +30,8 @@
   color: #2b2d26;
 }
 
-.todo-btn {
+.todo-btn,
+.check-btn {
   cursor: pointer;
   border: none;
   border-radius: var(--border-radius);
@@ -54,4 +57,9 @@
   padding: var(--padding-sides);
   border: var(--white-border);
   border-radius: var(--border-radius);
+}
+
+.check-btn {
+  position: absolute;
+  left: -40px;
 }

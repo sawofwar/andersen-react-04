@@ -61,6 +61,7 @@ const TodoList = () => {
               </div>
             ) : (
               <div className="todo-main">
+                <button className="check-btn">✅</button>
                 <span>{todo.title}</span>
                 <button
                   onClick={() => handleEditButtonClick(todo.id, todo.title)}
