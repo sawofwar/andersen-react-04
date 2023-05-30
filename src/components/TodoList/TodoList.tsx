@@ -9,7 +9,7 @@ import Todo from "../Todo/Todo";
 
 import "./TodoList.css";
 
-const TodoList = ({ filter }: { filter: string }) => {
+const TodoList = ({ active }: { active: boolean }) => {
   const todos = useSelector((state: TodoState) => state.todos);
   const [editTodoId, setEditTodoId] = useState<number | null>(null);
   const [editTodoText, setEditTodoText] = useState("");
@@ -46,29 +46,29 @@ const TodoList = ({ filter }: { filter: string }) => {
   return (
     <div className="todo-wrapper">
       <ul className="todo-list">
-        {todos.map((todo) =>
-          // 🔥 li start
+        {todos.map(
+          (todo) =>
+            todo.active === active ? (
+              // 🔥 li start
 
-          todo.active ? (
-            <li key={todo.id} className="todo-item">
-              {editTodoId === todo.id ? (
-                <EditTodo
-                  inputValue={editTodoText}
-                  onChange={handleEditInputChange}
-                  onEdit={handleEditTodo}
-                />
-              ) : (
-                <Todo
-                  id={todo.id}
-                  title={todo.title}
-                  onEditButtonClick={handleEditButtonClick}
-                  onRemoveButtonClick={handleRemoveTodo}
-                />
-
-                // 🔥 li end
-              )}
-            </li>
-          ) : null
+              <li key={todo.id} className="todo-item">
+                {editTodoId === todo.id ? (
+                  <EditTodo
+                    inputValue={editTodoText}
+                    onChange={handleEditInputChange}
+                    onEdit={handleEditTodo}
+                  />
+                ) : (
+                  <Todo
+                    id={todo.id}
+                    title={todo.title}
+                    onEditButtonClick={handleEditButtonClick}
+                    onRemoveButtonClick={handleRemoveTodo}
+                  />
+                )}
+              </li>
+            ) : null
+          // 🔥 li end
         )}
       </ul>
     </div>

@@ -5,7 +5,6 @@ import { toggleTodo } from "../../store/actions";
 interface TodoProps {
   id: number;
   title: string;
-  filter?: string;
   onEditButtonClick: (id: number, title: string) => void;
   onRemoveButtonClick: (id: number) => void;
 }
@@ -13,7 +12,6 @@ interface TodoProps {
 const Todo = ({
   id,
   title,
-  filter,
   onEditButtonClick,
   onRemoveButtonClick,
 }: TodoProps) => {
