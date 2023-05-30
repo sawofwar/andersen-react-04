@@ -6,6 +6,8 @@ import "./TodoList.css";
 import { TodoState } from "../../types/Types";
 import { removeTodo, editTodo } from "../../store/actions";
 
+import EditTodo from "../EditTodo/EditTodo";
+
 const TodoList = () => {
   const todos = useSelector((state: TodoState) => state.todos);
   const [editTodoId, setEditTodoId] = useState<number | null>(null);
@@ -55,22 +57,11 @@ const TodoList = () => {
           <li key={todo.id} className="todo-item">
             {editTodoId === todo.id ? (
               // 🔥🔥 edit todo block
-
-              <div className="edit-todo">
-                <input
-                  type="text"
-                  value={editTodoText}
-                  onChange={handleEditInputChange}
-                  autoFocus
-                />
-
-                {/* 🔥🔥🔥 submit edited todo */}
-                <button onClick={handleEditTodo} className="todo-btn">
-                  💾
-                </button>
-
-                {/* // 🔥🔥 edit todo block end */}
-              </div>
+              <EditTodo
+                inputValue={editTodoText}
+                onChange={handleEditInputChange}
+                onEdit={handleEditTodo}
+              />
             ) : (
               // 🔥🔥 main todo block
 
