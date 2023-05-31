@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toggleTodo } from "../../store/actions";
+import { TodoState } from "../../types/Types";
 
 interface TodoProps {
   id: number;
@@ -15,12 +16,16 @@ const Todo = ({
   onEditButtonClick,
   onRemoveButtonClick,
 }: TodoProps) => {
-  const [strikeThrough, setStrikeThrough] = useState(false);
+  const todo = useSelector((state: TodoState) => {
+    return state.todos.find((todo) => todo.id === id);
+  });
+
+  const [strikeThrough, setStrikeThrough] = useState(!todo?.active);
   const dispatch = useDispatch();
 
   const checkButtonClickHandler = () => {
     setStrikeThrough(!strikeThrough);
-    dispatch(toggleTodo({ id, title }));
+    dispatch(toggleTodo({ id, title, active: !todo?.active }));
   };
 
   const handleRemoveTodoButtonClick = () => {
