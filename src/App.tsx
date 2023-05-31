@@ -5,6 +5,7 @@ import Inactive from "./pages/Inactive/Inactive";
 import Tabs from "./components/Tabs/Tabs";
 
 import "./App.css";
+import All from "./pages/All/All";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route path="/active" element={<Active />} />
           <Route path="/inactive" element={<Inactive />} />
+          <Route path="/all" element={<All />} />
         </Routes>
       </div>
     </Router>

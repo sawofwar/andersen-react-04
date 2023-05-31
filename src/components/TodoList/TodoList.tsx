@@ -9,7 +9,7 @@ import Todo from "../Todo/Todo";
 
 import "./TodoList.css";
 
-const TodoList = ({ active }: { active: boolean }) => {
+const TodoList = ({ active }: { active: boolean | null }) => {
   const todos = useSelector((state: TodoState) => state.todos);
   const [editTodoId, setEditTodoId] = useState<number | null>(null);
   const [editTodoText, setEditTodoText] = useState("");
@@ -89,6 +89,25 @@ const TodoList = ({ active }: { active: boolean }) => {
                 )}
               </li>
             ) : null;
+          } else {
+            return (
+              <li key={todo.id} className="todo-item">
+                {editTodoId === todo.id ? (
+                  <EditTodo
+                    inputValue={editTodoText}
+                    onChange={handleEditInputChange}
+                    onEdit={handleEditTodo}
+                  />
+                ) : (
+                  <Todo
+                    id={todo.id}
+                    title={todo.title}
+                    onEditButtonClick={handleEditButtonClick}
+                    onRemoveButtonClick={handleRemoveTodo}
+                  />
+                )}
+              </li>
+            );
           }
           // 🔥 li end
         })}

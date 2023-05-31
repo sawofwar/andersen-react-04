@@ -7,7 +7,7 @@ const Tabs = () => {
     <nav className="tabs">
       <ul className="tabs-list">
         <li className="tabs-item">
-          <Link to="/" className="tabs-link">
+          <Link to="/all" className="tabs-link">
             All
           </Link>
         </li>
