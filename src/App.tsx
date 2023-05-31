@@ -15,8 +15,9 @@ function App() {
 
         <Tabs />
         <Routes>
-          <Route path="/active" element={<Active />} />
+          <Route path="/" element={<Active />} />
           <Route path="/inactive" element={<Inactive />} />
+          <Route path="/active" element={<Active />} />
           <Route path="/all" element={<All />} />
         </Routes>
       </div>
