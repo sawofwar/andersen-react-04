@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Active from "./pages/Active/Active";
+import Inactive from "./pages/Inactive/Inactive";
 
 import Tabs from "./components/Tabs/Tabs";
 
@@ -14,6 +15,7 @@ function App() {
         <Tabs />
         <Routes>
           <Route path="/active" element={<Active />} />
+          <Route path="/inactive" element={<Inactive />} />
         </Routes>
       </div>
     </Router>

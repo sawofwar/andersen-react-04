@@ -5,6 +5,8 @@ import { addTodo } from "../../store/actions";
 
 import "./AddTodoForm.css";
 
+import store from "../../store/store";
+
 const AddTodoForm = () => {
   const [title, setTitle] = useState("");
   const dispatch = useDispatch();
@@ -20,6 +22,8 @@ const AddTodoForm = () => {
       dispatch(addTodo(newTodo));
       setTitle("");
     }
+
+    console.log(store.getState());
   };
 
   return (

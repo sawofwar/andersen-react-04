@@ -17,8 +17,8 @@ const Tabs = () => {
           </Link>
         </li>
         <li className="tabs-item">
-          <Link to="/completed" className="tabs-link">
-            Completed
+          <Link to="/inactive" className="tabs-link">
+            Inactive
           </Link>
         </li>
       </ul>

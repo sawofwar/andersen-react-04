@@ -46,9 +46,9 @@ const TodoList = ({ active }: { active: boolean }) => {
   return (
     <div className="todo-wrapper">
       <ul className="todo-list">
-        {todos.map(
-          (todo) =>
-            todo.active === active ? (
+        {todos.map((todo) => {
+          if (active === true) {
+            return todo.active === true ? (
               // 🔥 li start
 
               <li key={todo.id} className="todo-item">
@@ -67,9 +67,31 @@ const TodoList = ({ active }: { active: boolean }) => {
                   />
                 )}
               </li>
-            ) : null
+            ) : null;
+          } else if (active === false) {
+            return todo.active === false ? (
+              // 🔥 li start
+
+              <li key={todo.id} className="todo-item">
+                {editTodoId === todo.id ? (
+                  <EditTodo
+                    inputValue={editTodoText}
+                    onChange={handleEditInputChange}
+                    onEdit={handleEditTodo}
+                  />
+                ) : (
+                  <Todo
+                    id={todo.id}
+                    title={todo.title}
+                    onEditButtonClick={handleEditButtonClick}
+                    onRemoveButtonClick={handleRemoveTodo}
+                  />
+                )}
+              </li>
+            ) : null;
+          }
           // 🔥 li end
-        )}
+        })}
       </ul>
     </div>
   );
