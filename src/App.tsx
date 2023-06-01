@@ -8,8 +8,6 @@ import {
 
 import Login from "./pages/Login/Login";
 
-import Tabs from "./components/Tabs/Tabs";
-
 import All from "./pages/All/All";
 import Active from "./pages/Active/Active";
 import Inactive from "./pages/Inactive/Inactive";
@@ -65,12 +63,10 @@ function App() {
         {!user ? <Navigate to="/" /> : null}
 
         <Routes>
-          {!user ? (
-            <Route
-              path="/"
-              element={<Login onSubmitLogin={loginSubmitHandler} />}
-            />
-          ) : null}
+          <Route
+            path="/"
+            element={<Login onSubmitLogin={loginSubmitHandler} />}
+          />
           <Route path="/inactive" element={<Inactive />} />
           <Route path="/active" element={<Active />} />
           <Route path="/all" element={<All />} />

@@ -6,10 +6,9 @@
 
 .add-todo-input,
 .add-todo-btn {
-  font-size: 1rem;
+  font-size: 1.25rem;
   padding: var(--padding-sides);
   height: var(--small-height);
-  /* border: var(--white-border); */
   border: none;
   border-radius: var(--border-radius);
 }
@@ -25,4 +24,19 @@
   color: #3e4c40;
 
   background-color: var(--dark-pink);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-todo-btn:hover {
+  background-color: #333;
+}
+
+.add-todo-svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: var(--white);
+  stroke: white;
 }
