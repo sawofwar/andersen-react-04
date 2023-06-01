@@ -1,5 +1,4 @@
 import { useRef } from "react";
-import { useLocation } from "react-router-dom";
 
 import "./Login.css";
 
@@ -16,7 +15,6 @@ const Login = ({ onSubmitLogin }: { onSubmitLogin: (a: string) => void }) => {
 
   return (
     <div className="login">
-      <h1>Login</h1>
       <form action="submit" className="login-form" onSubmit={formSubmitHandler}>
         <label htmlFor="username">Username</label>
         <input

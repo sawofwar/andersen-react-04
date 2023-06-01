@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   BrowserRouter as Router,
   Route,
@@ -17,11 +17,22 @@ import Inactive from "./pages/Inactive/Inactive";
 import TaskCounter from "./components/TaskCounter/TaskCounter";
 
 import "./App.css";
-import { set } from "firebase/database";
+import BigHeading from "./components/BigHeading/BigHeading";
 
 function App() {
   const [user, setUser] = useState("");
   const [shouldRedirect, setShouldRedirect] = useState(true);
+  const [wrapperOpacity, setWrapperOpacity] = useState(0);
+
+  const [bigHeadingStyle, setBigHeadingStyle] = useState<
+    { marginTop: string } | undefined
+  >({ marginTop: "48px" });
+
+  useEffect(() => {
+    setTimeout(() => {
+      setWrapperOpacity(1);
+    }, 0);
+  }, []);
 
   const loginSubmitHandler = (user: string) => {
     if (user !== "") {
@@ -30,20 +41,27 @@ function App() {
 
       setTimeout(() => {
         setShouldRedirect(false);
+        setBigHeadingStyle({ marginTop: "24px" });
       }, 0);
     }
   };
 
   return (
     <Router>
-      <div className="wrapper">
+      <div style={{ opacity: wrapperOpacity }} className="wrapper">
         <h2>Todo List</h2>
         {user ? (
           <>
-            <h1>Welcome, {user}!</h1>
+            <BigHeading
+              style={bigHeadingStyle}
+              headingText={`Welcome, ${user}!`}
+            />
+
             <Tabs />
           </>
-        ) : null}
+        ) : (
+          <BigHeading headingText="Log In" />
+        )}
 
         {user && shouldRedirect ? <Navigate to="/active" /> : null}
         {!user ? <Navigate to="/" /> : null}
@@ -55,7 +73,7 @@ function App() {
               element={<Login onSubmitLogin={loginSubmitHandler} />}
             />
           ) : null}
-          {user ? <Route path="/inactive" element={<Inactive />} /> : null}
+          <Route path="/inactive" element={<Inactive />} />
           <Route path="/active" element={<Active />} />
           <Route path="/all" element={<All />} />
         </Routes>

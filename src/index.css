@@ -5,7 +5,8 @@
   padding: 0;
   box-sizing: border-box;
 
-  font-family: "Roboto Mono", monospace;
+  /* font-family: "Roboto Mono", monospace; */
+  font-family: Geologica, sans-serif;
 }
 
 :root {
@@ -19,8 +20,14 @@
 
   --padding-sides: 0 10px;
 
-  --white: #ccc;
+  --white: #eee;
   --black: #222;
+
+  --dark-blue: #242582;
+  --dark-purple: #553d67;
+  --dark-pink: #f64c72;
+  --dark-brown: #99738e;
+  --dark-blue-2: #2f2fa2;
 
   --light-green: #daffef;
   --green: #d0ffd6;
@@ -30,12 +37,7 @@
 }
 
 body {
-  color: #222;
+  color: var(--white);
 
-  background: rgb(211, 192, 210);
-  background: linear-gradient(
-    135deg,
-    rgba(211, 192, 210, 1) 0%,
-    rgba(166, 151, 156, 1) 100%
-  );
+  background: var(--dark-blue);
 }
