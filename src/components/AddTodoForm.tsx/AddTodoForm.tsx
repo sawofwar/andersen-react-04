@@ -34,7 +34,11 @@ const AddTodoForm = () => {
         className="add-todo-input"
         maxLength={30}
       />
-      <button onClick={handleAddTodo} className="add-todo-btn">
+      <button
+        onClick={handleAddTodo}
+        className="add-todo-btn"
+        data-testid="add-button"
+      >
         <PlusIcon className="h-6 w-6 add-todo-svg" />
       </button>
     </div>

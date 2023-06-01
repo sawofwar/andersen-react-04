@@ -46,7 +46,11 @@ function App() {
 
   return (
     <Router>
-      <div style={{ opacity: wrapperOpacity }} className="wrapper">
+      <div
+        style={{ opacity: wrapperOpacity }}
+        className="wrapper"
+        data-testid="app"
+      >
         <h2>Todo List</h2>
         {user ? (
           <>
