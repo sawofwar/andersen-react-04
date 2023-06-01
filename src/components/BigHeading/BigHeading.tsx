@@ -2,7 +2,7 @@ const BigHeading = ({
   headingText,
   style,
 }: {
-  headingText: string;
+  headingText?: string;
   style?: { marginTop: string; opacity?: number };
 }) => {
   return <h1 style={style}>{headingText}</h1>;
