@@ -1,0 +1,36 @@
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form > label {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 1rem;
+}
+
+.login-input {
+  margin-top: 1rem;
+  height: 3rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  border: 1px solid #000;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
+.login-button {
+  margin-top: 1rem;
+  height: 3rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  background-color: #000;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  background-color: #333;
+}
