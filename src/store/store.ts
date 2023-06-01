@@ -1,5 +1,6 @@
-import { createStore, Reducer } from "redux";
+import { createStore, Reducer, compose } from "redux";
 import { TodoState, TodoAction } from "../types/Types";
+import { ReduxDevtoolsExtensionCompose } from "@redux-devtools/extension";
 
 const initialState: TodoState = {
   todos: [],
@@ -42,10 +43,9 @@ const todoReducer: Reducer<TodoState, TodoAction> = (
   }
 };
 
-const store = createStore(
-  todoReducer,
-  (window as any).__REDUX_DEVTOOLS_EXTENSION__ &&
-    (window as any).__REDUX_DEVTOOLS_EXTENSION__()
-);
+const composeEnhancers: ReduxDevtoolsExtensionCompose =
+  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const store = createStore(todoReducer, composeEnhancers());
 
 export default store;

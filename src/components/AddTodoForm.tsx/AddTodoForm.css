@@ -30,7 +30,9 @@
   justify-content: center;
 }
 
-.add-todo-btn:hover {
+.add-todo-btn:hover,
+.add-todo-btn:active,
+.add-todo-btn:focus {
   background-color: #333;
 }
 
