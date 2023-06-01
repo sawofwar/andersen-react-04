@@ -1,18 +1,23 @@
+.todo-list {
+  margin-top: 3rem;
+}
+
 .todo-item {
   display: flex;
   align-items: center;
 
   list-style: none;
 
-  height: var(--small-height);
+  height: 3rem;
   padding: var(--padding-sides);
 
-  background-color: var(--light-brown);
+  background-color: var(--dark-pink);
   border-radius: var(--border-radius);
 
   margin-top: 10px;
 
   position: relative;
+  font-size: 1.25rem;
 }
 
 .todo-main {
@@ -27,21 +32,21 @@
 
 .todo-main > span {
   margin-right: auto;
-  color: #2b2d26;
+  color: var(--white);
 }
 
 .todo-btn,
 .check-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.25rem;
+
   cursor: pointer;
   border: none;
   border-radius: var(--border-radius);
-
-  height: calc(var(--small-height) * 0.75);
-  aspect-ratio: 1/1;
-}
-
-.todo-btn:hover {
-  background-color: var(--red);
+  background: none;
 }
 
 .edit-todo {
@@ -62,4 +67,15 @@
 .check-btn {
   position: absolute;
   left: -40px;
+}
+
+.icon-svg {
+  width: 1.75rem;
+  height: 1.75rem;
+  fill: var(--white);
+}
+
+.icon-svg:hover {
+  -webkit-filter: invert(1);
+  filter: invert(1);
 }

@@ -3,6 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleTodo } from "../../store/actions";
 import { TodoState } from "../../types/Types";
 
+import { PencilIcon } from "@heroicons/react/24/outline";
+import { TrashIcon } from "@heroicons/react/24/outline";
+import { CheckIcon } from "@heroicons/react/20/solid";
+
 interface TodoProps {
   id: number;
   title: string;
@@ -39,7 +43,7 @@ const Todo = ({
   return (
     <div className="todo-main">
       <button className="check-btn" onClick={checkButtonClickHandler}>
-        ✅
+        <CheckIcon className="h-6 w-6 text-gray-500 icon-svg" />
       </button>
 
       <span
@@ -53,11 +57,11 @@ const Todo = ({
       </span>
 
       <button onClick={() => handleEditButtonClick()} className="todo-btn">
-        🖊️
+        <PencilIcon className="h-6 w-6 text-gray-500 icon-svg" />
       </button>
 
       <button onClick={handleRemoveTodoButtonClick} className="todo-btn">
-        ❌
+        <TrashIcon className="h-6 w-6 text-gray-500 icon-svg" />
       </button>
     </div>
   );
