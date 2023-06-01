@@ -43,4 +43,15 @@ describe("AddTodoForm", () => {
     await user.keyboard("test");
     expect(todoForm).toHaveValue("test");
   });
+
+  it("clears input value on submit", async () => {
+    const user = userEvent.setup();
+    render(<MockAddTodo />);
+    const todoForm = screen.getByPlaceholderText(/add todo/i);
+    const addButton = screen.getByTestId("add-button");
+    await user.click(todoForm);
+    await user.keyboard("Adding a todo");
+    await user.click(addButton);
+    expect(todoForm).toHaveValue("");
+  });
 });
