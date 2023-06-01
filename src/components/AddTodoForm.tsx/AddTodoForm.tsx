@@ -24,8 +24,6 @@ const AddTodoForm = () => {
       dispatch(addTodo(newTodo));
       setTitle("");
     }
-
-    console.log(store.getState());
   };
 
   return (
@@ -36,6 +34,7 @@ const AddTodoForm = () => {
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         className="add-todo-input"
+        maxLength={30}
       />
       <button onClick={handleAddTodo} className="add-todo-btn">
         <PlusIcon className="h-6 w-6 add-todo-svg" />

@@ -31,11 +31,14 @@ const TodoList = ({ active }: { active: boolean | null }) => {
   };
 
   const handleEditTodo = () => {
+    const todoStatus = todos.find((todo) => todo.id === editTodoId)?.active;
+
     if (editTodoId !== null && editTodoText.trim() !== "") {
       dispatch(
         editTodo({
           id: editTodoId,
           title: editTodoText.trim(),
+          active: todoStatus,
         })
       );
       setEditTodoId(null);
@@ -49,8 +52,6 @@ const TodoList = ({ active }: { active: boolean | null }) => {
         {todos.map((todo) => {
           if (active === true) {
             return todo.active === true ? (
-              // 🔥 li start
-
               <li key={todo.id} className="todo-item">
                 {editTodoId === todo.id ? (
                   <EditTodo
@@ -70,8 +71,6 @@ const TodoList = ({ active }: { active: boolean | null }) => {
             ) : null;
           } else if (active === false) {
             return todo.active === false ? (
-              // 🔥 li start
-
               <li key={todo.id} className="todo-item">
                 {editTodoId === todo.id ? (
                   <EditTodo
@@ -109,7 +108,6 @@ const TodoList = ({ active }: { active: boolean | null }) => {
               </li>
             );
           }
-          // 🔥 li end
         })}
       </ul>
     </div>

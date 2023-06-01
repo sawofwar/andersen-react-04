@@ -25,9 +25,9 @@ const EditTodo = ({ inputValue, onChange, onEdit }: EditTodoProps) => {
         onChange={inputChangeHandler}
         autoFocus
         className="edit-todo-input"
+        maxLength={30}
       />
 
-      {/* 🔥🔥🔥 submit edited todo */}
       <button onClick={editButtonClickHandler} className="todo-btn">
         <CheckIcon className="h-6 w-6 text-gray-500 icon-svg" />
       </button>
