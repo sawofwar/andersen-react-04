@@ -26,6 +26,7 @@ const EditTodo = ({ inputValue, onChange, onEdit }: EditTodoProps) => {
         autoFocus
         className="edit-todo-input"
         maxLength={30}
+        data-testid="edit-todo-input"
       />
 
       <button onClick={editButtonClickHandler} className="todo-btn">
