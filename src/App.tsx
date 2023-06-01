@@ -56,8 +56,6 @@ function App() {
               style={bigHeadingStyle}
               headingText={`Welcome, ${user}!`}
             />
-
-            <Tabs />
           </>
         ) : (
           <BigHeading headingText="Log In" />

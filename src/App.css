@@ -19,3 +19,7 @@ h1 {
 h2 {
   color: #9292c1;
 }
+
+.small-wrapper {
+  width: clamp(200px, 28rem, 800px);
+}

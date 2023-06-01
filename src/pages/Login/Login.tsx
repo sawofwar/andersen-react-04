@@ -16,7 +16,7 @@ const Login = ({ onSubmitLogin }: { onSubmitLogin: (a: string) => void }) => {
   return (
     <div className="login">
       <form action="submit" className="login-form" onSubmit={formSubmitHandler}>
-        <label htmlFor="username">Username</label>
+        <label htmlFor="username">Enter username</label>
         <input
           type="text"
           placeholder="Username"
