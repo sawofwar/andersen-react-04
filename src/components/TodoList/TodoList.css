@@ -59,9 +59,11 @@
 
 .edit-todo > input {
   width: 100%;
+  height: 2rem;
   padding: var(--padding-sides);
   border: var(--white-border);
   border-radius: var(--border-radius);
+  font-size: 1.15rem;
 }
 
 .check-btn {

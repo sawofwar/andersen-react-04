@@ -1,10 +1,11 @@
+import { CheckIcon } from "@heroicons/react/24/solid";
+
 type InputChangeEventType = React.ChangeEvent<HTMLInputElement>;
-type EditButtonClickEventType = React.MouseEvent<HTMLButtonElement>;
 
 interface EditTodoProps {
   inputValue: string;
   onChange: (event: InputChangeEventType) => void;
-  onEdit: (event: EditButtonClickEventType) => void;
+  onEdit: () => void;
 }
 
 const EditTodo = ({ inputValue, onChange, onEdit }: EditTodoProps) => {
@@ -12,8 +13,8 @@ const EditTodo = ({ inputValue, onChange, onEdit }: EditTodoProps) => {
     onChange(event);
   };
 
-  const editButtonClickHandler = (event: EditButtonClickEventType) => {
-    onEdit(event);
+  const editButtonClickHandler = () => {
+    onEdit();
   };
 
   return (
@@ -23,11 +24,12 @@ const EditTodo = ({ inputValue, onChange, onEdit }: EditTodoProps) => {
         value={inputValue}
         onChange={inputChangeHandler}
         autoFocus
+        className="edit-todo-input"
       />
 
       {/* 🔥🔥🔥 submit edited todo */}
       <button onClick={editButtonClickHandler} className="todo-btn">
-        💾
+        <CheckIcon className="h-6 w-6 text-gray-500 icon-svg" />
       </button>
     </div>
   );
