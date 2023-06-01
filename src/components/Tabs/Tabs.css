@@ -43,11 +43,9 @@
   font-weight: bold;
   font-size: 1.25rem;
 
-  transition: 0.15s;
+  transition: 0.07s;
 }
 
 .tabs-link:hover {
   color: var(--black);
 }
-
-/* TODO: save todo icon!!! */
