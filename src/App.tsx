@@ -6,6 +6,7 @@ import Tabs from "./components/Tabs/Tabs";
 
 import "./App.css";
 import All from "./pages/All/All";
+import TaskCounter from "./components/TaskCounter/TaskCounter";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/active" element={<Active />} />
           <Route path="/all" element={<All />} />
         </Routes>
+        <TaskCounter />
       </div>
     </Router>
   );

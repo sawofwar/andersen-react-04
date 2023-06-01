@@ -1,0 +1,4 @@
+.task-counter {
+  margin-top: clamp(32px, 5vw, 64px);
+  margin-bottom: 256px;
+}
