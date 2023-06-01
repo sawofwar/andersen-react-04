@@ -1,5 +1,10 @@
 import { useState } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
 
 import Login from "./pages/Login/Login";
 
@@ -12,28 +17,45 @@ import Inactive from "./pages/Inactive/Inactive";
 import TaskCounter from "./components/TaskCounter/TaskCounter";
 
 import "./App.css";
-import { useEffect } from "react";
+import { set } from "firebase/database";
 
 function App() {
   const [user, setUser] = useState("");
+  const [shouldRedirect, setShouldRedirect] = useState(true);
 
-  const loginSubmitHandler = (user: any) => {
-    setUser(user);
+  const loginSubmitHandler = (user: string) => {
+    if (user !== "") {
+      setUser(user);
+      setShouldRedirect(true);
+
+      setTimeout(() => {
+        setShouldRedirect(false);
+      }, 0);
+    }
   };
 
   return (
     <Router>
       <div className="wrapper">
-        <h1>Todo List</h1>
-        <h2>Welcome {user}</h2>
+        <h2>Todo List</h2>
+        {user ? (
+          <>
+            <h1>Welcome, {user}!</h1>
+            <Tabs />
+          </>
+        ) : null}
 
-        <Tabs />
+        {user && shouldRedirect ? <Navigate to="/active" /> : null}
+        {!user ? <Navigate to="/" /> : null}
+
         <Routes>
-          <Route
-            path="/"
-            element={<Login onSubmitLogin={loginSubmitHandler} />}
-          />
-          <Route path="/inactive" element={<Inactive />} />
+          {!user ? (
+            <Route
+              path="/"
+              element={<Login onSubmitLogin={loginSubmitHandler} />}
+            />
+          ) : null}
+          {user ? <Route path="/inactive" element={<Inactive />} /> : null}
           <Route path="/active" element={<Active />} />
           <Route path="/all" element={<All />} />
         </Routes>

@@ -1,4 +1,4 @@
-.tabs > ul {
+.tabs-list {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -7,9 +7,23 @@
 
   gap: 1rem;
 
-  margin: 1rem 0;
+  /* margin: 1rem 0; */
+}
 
-  /* background-color: #f1f1f1; */
+.tabs-item {
+  height: 3rem;
+  width: 9rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-right: 1px solid var(--black);
+  padding: 0 1rem;
+}
+
+.tabs-item:last-child {
+  border-right: none;
 }
 
 .tabs-link {
@@ -17,9 +31,19 @@
   color: var(--black);
   font-weight: bold;
   font-size: 1.25rem;
-  /* padding: 0.5rem 1rem; */
-  /* border-radius: 0.5rem; */
-  /* transition: all 0.2s ease-in-out; */
+}
 
-  background-color: white;
+.tabs-link:hover {
+  color: var(--brown);
+}
+
+.tabs {
+  display: flex;
+  align-items: center;
+
+  height: 3rem;
+
+  background: white;
+  border-radius: var(--border-radius);
+  padding: 0 12px;
 }
