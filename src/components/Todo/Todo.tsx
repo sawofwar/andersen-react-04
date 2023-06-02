@@ -42,7 +42,11 @@ const Todo = ({
 
   return (
     <div className="todo-main">
-      <button className="check-btn" onClick={checkButtonClickHandler}>
+      <button
+        className="check-btn"
+        onClick={checkButtonClickHandler}
+        data-testid="check-btn"
+      >
         <CheckIcon className="h-6 w-6 text-gray-500 icon-svg" />
       </button>
 
@@ -56,11 +60,19 @@ const Todo = ({
         {title}
       </span>
 
-      <button onClick={() => handleEditButtonClick()} className="todo-btn">
+      <button
+        onClick={() => handleEditButtonClick()}
+        className="todo-btn"
+        data-testid="edit-btn"
+      >
         <PencilIcon className="h-6 w-6 text-gray-500 icon-svg" />
       </button>
 
-      <button onClick={handleRemoveTodoButtonClick} className="todo-btn">
+      <button
+        onClick={handleRemoveTodoButtonClick}
+        className="todo-btn"
+        data-testid="remove-btn"
+      >
         <TrashIcon className="h-6 w-6 text-gray-500 icon-svg" />
       </button>
     </div>
